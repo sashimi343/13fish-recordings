@@ -1,0 +1,6 @@
+vendor/bundle
+.bundle
+.env
+*.swp
+tmp/*
+public_html/*
