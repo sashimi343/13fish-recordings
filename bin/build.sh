@@ -7,4 +7,4 @@
 
 ROOT=`git rev-parse --show-toplevel`
 
-ruby "${ROOT}/bin/renderer.rb" "${ROOT}"
+ruby "${ROOT}/bin/recipe.rb" "${ROOT}"
