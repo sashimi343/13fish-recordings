@@ -1,0 +1,21 @@
+doctype html
+html lang="ja"
+  head
+    meta charset="utf-8"
+    meta name="robots" content="index,follow"
+    title = title
+  body
+    #container
+      #header
+        | これは説明文です
+      #menu
+        ul
+          li メニュー1です
+          li メニュー2です
+          li メニュー3です
+          li メニュー4です
+      #main
+        == yield
+      #footer
+        p
+          | これはフッタです
