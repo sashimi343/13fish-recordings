@@ -9,7 +9,7 @@ require 'fileutils'
 class Renderer
   def initialize(root)
     @root = root
-    @layout = src_path 'templates/layout.slim'
+    @layout = src_path 'templates/layout'
   end
 
   #
@@ -27,11 +27,11 @@ class Renderer
   private
 
   def src_path(src_file)
-    "#{@root}/src/#{src_file}"
+    "#{@root}/src/#{src_file}.slim"
   end
 
   def dst_path(dst_file)
-    "#{@root}/public_html/#{dst_file}"
+    "#{@root}/public_html/#{dst_file}.html"
   end
 
   def render(src_path, option)
