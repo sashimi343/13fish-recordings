@@ -12,6 +12,11 @@ require "#{ROOT}/bin/option"
 
 renderer = Renderer.new ROOT
 
+# Index page
+articles = Dir.glob("#{ROOT}/src/resources/articles/*").sort { |a, b| b <=> a }.map { |e| renderer.render e }
+option = Option.create title: '13FISH Recordings', breadcrumbs: ["Index"], articles: articles
+renderer.render_with_template 'contents/index', 'index', option
+
 # About page
 option = Option.create title: '13FISH Recordings', breadcrumbs: ["Index", "About"]
 renderer.render_with_template 'contents/about', 'about', option

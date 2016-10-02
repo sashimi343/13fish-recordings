@@ -4,6 +4,7 @@
 #
 
 require 'slim'
+require 'slim/include'
 require 'fileutils'
 
 class Renderer
@@ -24,6 +25,10 @@ class Renderer
     write page, dst_path(dst_file)
   end
 
+  def render(src_path, option = {})
+    Slim::Template.new(src_path).render(option)
+  end
+
   private
 
   def src_path(src_file)
@@ -32,10 +37,6 @@ class Renderer
 
   def dst_path(dst_file)
     "#{@root}/public_html/#{dst_file}.html"
-  end
-
-  def render(src_path, option)
-    Slim::Template.new(src_path).render(option)
   end
 
   def apply_template(contents, option)
