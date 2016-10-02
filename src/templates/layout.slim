@@ -1,21 +1,40 @@
 doctype html
+/! Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.
 html lang="ja"
   head
     meta charset="utf-8"
+    link rel="stylesheet" href="/css/default.css" type="text/css" charset="utf-8"
+    link rel="stylesheet" href="/css/layout.css" type="text/css" charset="utf-8"
+    link rel="stylesheet" href="/css/content.css" type="text/css" charset="utf-8"
+    link rel="stylesheet" href="/css/extra.css" type="text/css" charset="utf-8"
     meta name="robots" content="index,follow"
     title = title
   body
     #container
       #header
-        | これは説明文です
-      #menu
-        ul
-          li メニュー1です
-          li メニュー2です
-          li メニュー3です
-          li メニュー4です
+        #banner
+          a href="/index.html"
+            img src="/img/banner.png" alt="banner"
+          .description
+            | 13FISH Recordingsは素人の素人による素人のためのネットレーベルです。<br>
+              クラブミュージックを中心としたアルバムを公開しています。
+        hr
+        #menu
+          ul
+            li: a href="/index.html" Index
+            li: a href="/about.html" About
+            li: a href="/works/index.html" Works
+            li: a href="/archive/index.html" Archive
+            li: a href="/contact/index.html" Contact
+            li: a href="http://clap.webclap.com/clap.php?id=13fish" target="_blank" Web Clap
+        hr
+        #info
+          ol
+            - breadcrumbs.each do |breadcrumb|
+              <li>#{breadcrumb}</li>
       #main
         == yield
-      #footer
-        p
-          | これはフッタです
+      hr
+      #copyright
+        | Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.
+      hr

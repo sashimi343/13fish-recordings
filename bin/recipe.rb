@@ -12,6 +12,6 @@ require "#{ROOT}/bin/option"
 
 renderer = Renderer.new ROOT
 
-# sample page
-option = Option.create title: '13FISH Recordings', name: 'aaaaa'
-renderer.render_with_template 'sample', 'hoge/sample', option
+# About page
+option = Option.create title: '13FISH Recordings', breadcrumbs: ["Index", "About"]
+renderer.render_with_template 'contents/about', 'about', option

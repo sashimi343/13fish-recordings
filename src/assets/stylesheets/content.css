@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+ *                                                                             *
+ *        Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.       *
+ *                                                                             *
+ *******************************************************************************/
+ 
+
+/* content (in #main)
+-------------------------------------------------------------------------------*/
+
+.content
+{
+    margin: 0;
+    padding: 15px 0;
+    width: 100%;
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+.contentLeft
+{
+    margin: 0;
+    padding: 15px 0;
+    width: 50%;
+    float: left;
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+.contentRight
+{
+    margin: 0;
+    padding: 15px 0;
+    width: 50%;
+    float: right;
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+
+/* article
+-------------------------------------------------------------------------------*/
+
+/* title */
+.y
+{
+    border-left: 10px solid #69f;
+    margin: 20px 10px 10px;
+    padding: 2px 5px;
+    background-image: url("../img/transbg_y.png");
+    font-size: 1.2em;
+}
+
+/* title (sub) */
+.yy
+{
+    border-left: 10px solid #69f;
+    margin: 20px 10px 10px 30px;
+    padding: 2px 5px;
+    background-image: url("../img/transbg_y.png");
+    font-size:1.1em;
+}
+
+/* paragraph */
+.z
+{
+    font-size: 0.9em;
+    line-height: 1.7em;
+    padding: 5px 15px 10px 15px;
+    text-indent: 1em;
+    word-wrap: break-word;
+}
+
+/* paragraph for .yy */
+.zz
+{
+    font-size: 0.9em;
+    line-height: 1.7em;
+    padding: 5px 15px 10px 35px;
+    text-indent: 1em;
+    word-wrap: break-word;
+}
+
+
+/* clear some properties
+-------------------------------------------------------------------------------*/
+
+.z table
+{
+    text-indent: 0;
+    text-align: left;
+}
+
+.zz table
+{
+    text-indent: 0;
+    text-align: left;
+}
+
+.z p
+{
+    text-indent: 0;
+    text-align: left;
+}
+
+.zz p
+{
+    text-indent: 0;
+    text-align: left;
+}
+
+.z blockquote
+{
+    text-indent: 0;
+}
+
+.zz blockquote
+{
+    text-indent: 0;
+}
+
+.linkBanner a
+{
+    border-bottom: 0;
+}
+
+.linkBanner a:hover
+{
+    background: none;
+}
