@@ -2,8 +2,8 @@ page :index do
   title 'Index'
   path '/index.html'
   template 'index'
-  resources news: 'news'
-  partials articles: 'articles/*'
+  resource 'news', 'news'
+  partial 'articles', 'articles/*', true
 end
 
 page :about do

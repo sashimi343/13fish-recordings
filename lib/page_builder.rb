@@ -30,25 +30,25 @@ class PageBuilder
     @template = template
   end
 
-  def resources(resources = {})
-    resources.each_pair do |key, value|
-      resource = load_resource value
-      if @resources.key? key or @partials.key? key
-        raise RuntimeError.new "Duplicated resource key: #{key} (id = #{@id})"
-      else
-        @resources[key] = resource
-      end
+  def resource(key, resource_name)
+    resource = load_resource resource_name
+    if @resources.key? key or @partials.key? key
+      raise RuntimeError.new "Duplicated resource key: #{key} (id = #{@id})"
+    else
+      @resources[key] = resource
     end
   end
 
-  def partials(partials = {})
-    partials.each_pair do |key, value|
-      partial = load_partial value
-      if @resources.key? key or @partials.key? key
-        raise RuntimeError.new "Duplicated partial key: #{key} (id = #{@id})"
-      else
-        @partials[key] = partial
-      end
+  def partial(key, partial_name, desc = false)
+    partial = if desc
+                load_partial_desc partial_name
+              else
+                load_partial partial_name
+              end
+    if @resources.key? key or @partials.key? key
+      raise RuntimeError.new "Duplicated partial key: #{key} (id = #{@id})"
+    else
+      @partials[key] = partial
     end
   end
 
@@ -77,6 +77,19 @@ class PageBuilder
     else
       renderer = Renderer.new
       paths.map { |path| renderer.render path }
+    end
+  end
+
+  def load_partial_desc(partial_name)
+    paths = Dir.glob "./src/partials/#{partial_name}"
+    case paths.size
+    when 0
+      raise RuntimeError.new "Unknown partial file: #{partial_name} (id = #{@id})"
+    when 1
+      YAML.load_file paths[0]
+    else
+      renderer = Renderer.new
+      paths.reverse.map { |path| renderer.render path }
     end
   end
 end
