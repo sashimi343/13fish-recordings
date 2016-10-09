@@ -17,7 +17,7 @@ fi
 rm -rf ${root}/public_html/*
 
 # Render slim files
-ruby ${root}/bin/recipe.rb ${root}
+bundle exec ruby ${root}/lib/recipe.rb ${root}
 
 # Place static resources
 cp -r ${root}/src/assets/stylesheets ${root}/public_html/css

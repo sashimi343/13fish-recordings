@@ -10,7 +10,7 @@ require 'fileutils'
 class Renderer
   def initialize(root)
     @root = root
-    @layout = src_path 'templates/layout'
+    @layout = src_path '_layout'
   end
 
   #
@@ -39,7 +39,7 @@ class Renderer
 
   def src_path(src_file)
     src_file += ".slim" unless src_file.end_with? ".slim"
-    File.absolute_path src_file, "#{@root}/src"
+    File.absolute_path src_file, "#{@root}/src/templates"
   end
 
   def dst_path(dst_file)
