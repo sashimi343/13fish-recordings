@@ -13,11 +13,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Initialize current directory
+cd ${root}
+
 # Clear old files
 rm -rf ${root}/public_html/*
 
 # Render slim files
-bundle exec ruby ${root}/lib/recipe.rb ${root}
+bundle exec ruby ./lib/slim_cms.rb ${root}
 
 # Place static resources
 cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
