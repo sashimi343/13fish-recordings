@@ -3,8 +3,8 @@
 # Copyright (C) 2016 sashimi All Rights Reserved.
 #
 
-require './lib/renderer'
-require './lib/option_builder'
+require_relative 'renderer'
+require_relative 'option_builder'
 
 class Page
   attr_reader :id, :title, :path, :template, :resources, :partials

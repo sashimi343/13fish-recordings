@@ -4,9 +4,9 @@
 #
 
 require 'yaml'
-require './lib/renderer'
-require './lib/resource'
-require './lib/partial'
+require_relative 'renderer'
+require_relative 'resource'
+require_relative 'partial'
 
 class PageBuilder
   def initialize(id)

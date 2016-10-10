@@ -3,8 +3,8 @@
 # Copyright (C) 2016 sashimi All Rights Reserved.
 #
 
-require "./lib/page_builder"
-require "./lib/page"
+require_relative 'page_builder'
+require_relative 'page'
 
 class Sitemap
   attr_reader :pages

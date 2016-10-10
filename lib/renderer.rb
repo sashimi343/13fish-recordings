@@ -4,7 +4,6 @@
 #
 
 require 'slim'
-require 'slim/include'
 require 'fileutils'
 
 class Renderer

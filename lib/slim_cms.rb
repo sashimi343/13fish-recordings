@@ -4,7 +4,7 @@
 # Copyright (C) 2016 sashimi All Rights Reserved.
 #
 
-require "./lib/sitemap"
+require_relative 'sitemap'
 
 # Get command line arguments
 $root = ARGV[0]
