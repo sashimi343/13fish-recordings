@@ -31,7 +31,7 @@ class Renderer
 
   private
 
-  LAYOUT = './src/templates/_layout.slim'
+  LAYOUT = File.expand_path '../src/templates/_layout.slim', File.dirname(__FILE__)
 
   def apply_template(contents, option)
     Slim::Template.new(LAYOUT).render(option) { contents }

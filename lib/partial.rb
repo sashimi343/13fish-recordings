@@ -15,7 +15,8 @@ class Partial
   private
 
   def load_file(partial_name)
-    paths = Dir.glob "./src/partials/#{partial_name}"
+    paths = Dir.glob(File.expand_path("../src/partials/#{partial_name}", File.dirname(__FILE__)))
+    p "paths = #{paths}"
     case paths.size
     when 0
       raise RuntimeError.new "Unknown partial file: #{partial_name} (id = #{@id})"

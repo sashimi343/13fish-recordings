@@ -1,4 +1,5 @@
 require 'ostruct'
+require_relative 'page'
 
 class OptionBuilder
   def initialize

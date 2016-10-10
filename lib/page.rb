@@ -22,8 +22,10 @@ class Page
 
   def render
     renderer = Renderer.new
+    src_path = File.expand_path "../src/templates/#{@template}.slim", File.dirname(__FILE__)
+    dst_path = File.expand_path "../public_html#{@path}", File.dirname(__FILE__)
     option = build_option
-    renderer.render_with_template "./src/templates/#{@template}.slim", "./public_html#{@path}", option
+    renderer.render_with_template src_path, dst_path, option
   end
 
   private

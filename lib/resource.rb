@@ -11,7 +11,7 @@ class Resource
   private
 
   def load_file(resource_name)
-    path = "./src/resources/#{resource_name}.yml"
+    path = File.expand_path "../src/resources/#{resource_name}", File.dirname(__FILE__)
     if File.exist? path
       YAML.load_file path
     else

@@ -12,7 +12,9 @@ class PageBuilder
   def initialize(id)
     @id = id
     @parent = nil
-    @title = @path = @template = ''
+    @title = ''
+    @path = ''
+    @template = ''
     @resources = []
     @partials = []
   end

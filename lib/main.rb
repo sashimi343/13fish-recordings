@@ -5,7 +5,7 @@
 
 require_relative 'site'
 
-sitemap = Site.new
-sitemap.load './config/pages.rb'
+site = Site.new
+site.load File.expand_path '../config/pages.rb', File.dirname(__FILE__)
 
-sitemap.pages.each { |page| page.render }
+site.pages.each { |page| page.render }
