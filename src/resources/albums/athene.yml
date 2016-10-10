@@ -1,0 +1,43 @@
+# ある程度日本語を書いておかないとvimの文字コード認識がバグる
+id: athene
+title: Athene Remix ALBUM
+code: FISH-0004
+tracks:
+  - name: 'Athene [iszRMX]'
+    artist: isz
+  - name: Athene -Itsuki Remix-
+    artist: Itsuki
+  - name: Athene (Photon Mix)
+    artist: S-mily
+  - name: 'Athene [Night-Duty Squad Mix]'
+    artist: さしみ
+  - name: Athene -Model Zara Remix-
+    artist: SSA
+  - name: Athene -NH Remix-
+    artist: Negative Headphone
+  - name: Athene -Deus Ex Machina-
+    artist: goma
+  - name: Athene -Xiba CrossRoad Remix-
+    artist: Xiba
+staffs:
+  - role: Composer
+    members:
+      - さしみ
+      - goma
+      - SSA
+      - isz
+      - Itsuki
+      - S-mily
+      - Negative Headphone
+      - Xiba
+  - role: Designer
+    members:
+      - saik
+  - role: Mastering
+    members:
+      - SSA
+  - role: Original
+    members:
+      - '?'
+download: https://dl.dropbox.com/s/2020bl8zq80s8xb/%5BFISH-0004%5D%20Athene%20Remix%20ALBUM.zip?dl=1
+
