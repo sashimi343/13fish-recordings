@@ -12,3 +12,12 @@ page :about do
   template 'about'
   parent :index
 end
+
+page :works do
+  title 'Works'
+  path '/works/index.html'
+  template 'works'
+  resource 'albums', 'albums.yml'
+  resource 'songs', 'songs.yml'
+  parent :index
+end
