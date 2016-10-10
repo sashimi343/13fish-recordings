@@ -23,7 +23,8 @@ page :works do
 end
 
 albums = {
-  second_fish: 'Second FISH'
+  second_fish: 'Second FISH',
+  fish_on_rice: 'FISH on RICE'
 }
 
 albums.each_pair do |id, title|

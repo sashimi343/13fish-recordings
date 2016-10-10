@@ -1,0 +1,40 @@
+id: fish_on_rice
+title: FISH on RICE
+code: FISH-0005
+tracks:
+  - name: kurukuru
+    artist: hogepiyo
+  - name: Beat Servant
+    artist: 595
+  - name: Mighty Aqua GROove
+    artist: goma
+  - name: Climbing waterfall SALMON
+    artist: SSA
+  - name: 'Q2h1dG9ybw== [Chutoro]'
+    artist: さしみ
+  - name: A NAtional GOvernment
+    artist: K.Kakimoto
+  - name: ENGAWA Humming!!
+    artist: イガラシバッタ３号
+  - name: UNIque
+    artist: FUJITSUBO
+  - name: オオゾラロスト
+    artist: saik
+  - name: Return to the ocean
+    artist: P.Largha
+secret_tracks: true
+staffs:
+  - role: Composer
+    members:
+      - saik
+      - さしみ
+      - goma
+      - SSA
+      - ??
+  - role: Designer
+    members:
+      - 662
+  - role: Mastering
+    members:
+      - さしみ
+download: https://dl.dropbox.com/s/zjqskmxziz9uzg2/%5BFISH-0005%5D%20FISH%20on%20RICE.zip?dl=1
