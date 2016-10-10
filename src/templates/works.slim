@@ -1,0 +1,47 @@
+.content
+  .y Works
+  .z
+    | ここでは、13FISH Recordingsの創作物を公開しています。
+      創作物にはアルバム、単曲でのリリースなどがあり、それらは全てご自由に試聴・ダウンロードできます。
+hr
+.contentLeft
+  .yy Album
+  .zz
+    | リリースしたアルバムの一覧です。
+      ジャケット画像をクリックすると特設サイトに移動します。
+      ダウンロードリンクは各特設サイト内に用意しております。
+  .zz
+    - albums.each do |album|
+      .albumBox
+        .albumCover
+          a href="/works/#{album['id']}/index.html"
+            img src="/img/covers/#{album['id']}.png" alt="#{album['name']} Cover"
+        .albumTitle
+          a href="/works/#{album['id']}/index.html" = album['name']
+          - if album['new']
+            font color='#ff0000'  New!
+.contentRight
+  .yy mp3
+  .zz
+    | 単曲リリース一覧です。
+      曲名をクリックすると試聴が出来ます。
+      ダウンロードは曲名右の Download ボタンよりどうぞ。
+  .zz
+    table
+      thead
+        tr
+          th Title
+          th Artist
+          th Download
+      tbody
+        - songs.each do |song|
+          tr
+            td
+              a href="#{song['url']}" target='_blank' = song['name']
+              - if song['new']
+                font color='#ff0000'  New!!
+            td
+              = song['artist']
+            td
+              .button
+                a href="#{song['download']}" Download
