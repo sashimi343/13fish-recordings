@@ -1,6 +1,6 @@
 .contentLeft
   /Latest 3 articles goes here
-  - articles.each do |article|
+  - articles[0, 3].each do |article|
     == article
   .z
     p
