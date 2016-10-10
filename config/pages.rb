@@ -50,3 +50,10 @@ page :archive do
   partial 'articles', 'articles/*', true
   parent :index
 end
+
+page :contact do
+  title 'Contact'
+  path '/contact.html'
+  template 'contact'
+  parent :index
+end
