@@ -11,27 +11,15 @@
     table
       tbody
         /Latest 7 news goes here
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
-        tr
-          td 2016/10/02
-          td this is a sample news
+        - news[0, 7].each do |item|
+          tr
+            td = item['date']
+            - if item.has_key? 'link_to'
+              td
+                a href = item['link_to']
+                  = item['subject']
+            - else
+              td = item['subject']
   .z
     p
       a href="/archive/index.html" Read More...
