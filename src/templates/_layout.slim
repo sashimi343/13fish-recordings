@@ -31,13 +31,13 @@ html lang="ja"
         #info
           ol
             - breadcrumbs.each do |breadcrumb|
-              - if breadcrumb.has_key? :path
+              - if breadcrumb.has_key? 'path'
                 li
-                  a href = breadcrumb[:path]
-                    = breadcrumb[:title]
+                  a href = breadcrumb['path']
+                    = breadcrumb['title']
                   |  &gt;
               - else
-                li = breadcrumb[:title]
+                li = breadcrumb['title']
       #main
         == yield
       hr
