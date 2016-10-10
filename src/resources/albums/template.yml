@@ -1,0 +1,23 @@
+# ある程度日本語を書いておかないとvimの文字コード認識がバグる
+id: 
+title: 
+code: FISH-0000
+tracks:
+  - name: 
+    artist: 
+secret_tracks: false
+staffs:
+  - role: Composer
+    members:
+      - saik
+      - さしみ
+      - goma
+      - SSA
+  - role: Designer
+    members:
+      - saik
+  - role: Mastering
+    members:
+      - さしみ
+download: 
+mirror: 

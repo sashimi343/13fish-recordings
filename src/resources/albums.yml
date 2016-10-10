@@ -1,0 +1,13 @@
+- id: second_fish
+  name: Second FISH
+  new: true
+- id: fish_on_rice
+  name: FISH on RICE
+- id: athene
+  name: Athene Remix ALBUM
+- id: heuschnupfen_ep
+  name: Heuschnupfen EP
+- id: yoshio_ep
+  name: YOSHIO EP
+- id: first_fish
+  name: First FISH

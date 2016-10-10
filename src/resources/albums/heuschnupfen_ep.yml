@@ -1,0 +1,31 @@
+# ある程度日本語を書いておかないとvimの文字コード認識がバグる
+id: heuschnupfen_ep
+title: Heuschnupfen EP
+code: FISH-0003
+tracks:
+  - name: Heuschnupfen
+    artist: goma
+  - name: 'Heuschnupfen [sashimi Remix]'
+    artist: さしみ
+  - name: Heuschnupfen(319 remix)
+    artist: 319
+  - name: Heuschnupfen-Secret Brightness Remix-
+    artist: SSA
+  - name: Heuschnupfen-Аутумн леавес REMIX-
+    artist: Аутумн леавес
+staffs:
+  - role: Composer
+    members:
+      - goma
+      - さしみ
+      - 319
+      - SSA
+      - Аутумн леавес
+  - role: Designer
+    members:
+      - goma
+      - saik
+  - role: Mastering
+    members:
+      - saik
+download: https://dl.dropboxusercontent.com/s/upttiis0uku6fda/%5BFISH-0003%5D%20Heuschnupfen%20EP.zip?dl=1

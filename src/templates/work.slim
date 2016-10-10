@@ -1,0 +1,50 @@
+.content
+  .y
+    | [#{album['code']}] #{album['title']}
+hr
+.contentLeft
+  .zz
+    .cover
+      a href="/img/covers/#{album['id']}.png" target='_blank'
+        img src="/img/covers/#{album['id']}.png" alt="#{album['title']} Cover"
+.contentRight
+  .yy Description
+  == description
+  .yy Cross Fade Demo &amp; Download
+  == cross_fade
+  .zz
+    .wideButton
+      a href=album['download']
+        | Download
+  - if album.has_key? 'mirror'
+    .zz
+      a href=album['mirro'] target='_blank'
+        | Download (Mirror)
+hr
+.contentLeft
+  .yy Track List
+  .zz
+    table
+      tbody
+        - album['tracks'].each_with_index do |track, index|
+          tr
+            td = sprintf '%02d', index + 1
+            td = track['name']
+            td = track['artist']
+        - if album['secret_tracks']
+          tr
+            td ??
+            td ??
+            td ??
+.contentRight
+  .yy Staff
+  .zz
+    table
+      tbody
+        - album['staffs'].each do |staff|
+          tr
+            td = staff['role']
+            td
+              - staff['members'].each do |member|
+                = member
+                br
