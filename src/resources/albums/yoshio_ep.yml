@@ -1,0 +1,33 @@
+# ある程度日本語を書いておかないとvimの文字コード認識がバグる
+id: yoshio_ep
+title: YOSHIO EP
+code: FISH-0002
+tracks:
+  - name: YOSHIO☆SHURAI -PEQ Remix-
+    artist: PEQ
+  - name: YOSHIO☆SHURAI -saik&HITOTABA BREAK Mix-
+    artist: saik&HITOTABA
+  - name: よしお☆しゅーらい！(さしみっくす！)
+    artist: さしみ
+  - name: 440Tech
+    artist: goma
+  - name: YOSHIO☆SHURAI-Origin to be overshadowed Remix-
+    artist: SSA
+staffs:
+  - role: Composer
+    members:
+      - saik
+      - さしみ
+      - goma
+      - PEQ
+      - SSA
+  - role: Designer
+    members:
+      - saik
+  - role: Mastering
+    members:
+      - さしみ
+  - role: Original
+    members:
+      - YOSHIO☆SHURAI / saik
+download: https://dl.dropboxusercontent.com/s/n70mq2ipl7c7wun/%5BFISH-0002%5D%20YOSHIO%20EP.zip?dl=1
