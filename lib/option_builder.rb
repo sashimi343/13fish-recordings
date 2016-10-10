@@ -41,11 +41,11 @@ class OptionBuilder
   private
 
   def breadcrumbs(leaf_page)
-    breadcrumbs = [{ title: leaf_page.title }]
+    breadcrumbs = [{ 'title' => leaf_page.title }]
 
     page = leaf_page.parent
     while page
-      breadcrumbs.unshift({ title: page.title, path: page.path })
+      breadcrumbs.unshift({ 'title' => page.title, 'path' => page.path })
       page = page.parent
     end
 
