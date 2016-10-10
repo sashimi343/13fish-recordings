@@ -27,7 +27,8 @@ albums = {
   fish_on_rice: 'FISH on RICE',
   athene: 'Athene Remix ALBUM',
   heuschnupfen_ep: 'Heuschnupfen EP',
-  yoshio_ep: 'YOSHIO EP'
+  yoshio_ep: 'YOSHIO EP',
+  first_fish: 'First FISH'
 }
 
 albums.each_pair do |id, title|

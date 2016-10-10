@@ -1,0 +1,46 @@
+# ある程度日本語を書いておかないとvimの文字コード認識がバグる
+id: first_fish
+title: First FISH
+code: FISH-0001
+tracks:
+  - name: Intro
+    artist: さしみ
+  - name: 'The Sky at Daybreak [Original Mix]'
+    artist: さしみ
+  - name: AQUALIUM(411 Remix)
+    artist: 411
+  - name: EXP_L01-T
+    artist: hitotaba
+  - name: gravitational lenz
+    artist: さしみ
+  - name: Lindwurm
+    artist: goma
+  - name: Border of Life
+    artist: aru
+  - name: far sky
+    artist: saik
+  - name: HAPPY ANTHEM
+    artist: saik
+staffs:
+  - role: Composer
+    members:
+      - saik
+      - さしみ
+      - 411
+      - goma
+      - aru
+  - role: Designer
+    members:
+      - saik
+  - role: Mastering
+    members:
+      - さしみ
+  - role: Tr.03 Original
+    members:
+      - AQUALIUM / bIE
+  - role: Tr.07 Original
+    members:
+      - ZUN (上海アリス幻樂団)
+      - 東方妖々夢　～ Perfect Cherry Blossom. より
+      - 幽雅に咲かせ、墨染の桜　～ Border of Life, ボーダーオブライフ
+download: https://dl.dropboxusercontent.com/s/4rwdl5wos3pnxqx/%5BFISH-0001%5D%20First%20FISH.zip?di=1
