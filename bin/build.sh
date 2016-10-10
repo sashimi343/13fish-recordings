@@ -20,7 +20,7 @@ cd ${root}
 rm -rf ${root}/public_html/*
 
 # Render slim files
-bundle exec ruby ./lib/slim_cms.rb ${root}
+bundle exec ruby ./lib/main.rb
 
 # Place static resources
 cp -r ${root}/src/assets/stylesheets ${root}/public_html/css

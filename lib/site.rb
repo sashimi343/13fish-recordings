@@ -6,7 +6,7 @@
 require_relative 'page_builder'
 require_relative 'page'
 
-class Sitemap
+class Site
   attr_reader :pages
 
   def initialize
