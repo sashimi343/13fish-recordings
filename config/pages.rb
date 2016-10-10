@@ -25,7 +25,8 @@ end
 albums = {
   second_fish: 'Second FISH',
   fish_on_rice: 'FISH on RICE',
-  athene: 'Athene Remix ALBUM'
+  athene: 'Athene Remix ALBUM',
+  heuschnupfen_ep: 'Heuschnupfen EP'
 }
 
 albums.each_pair do |id, title|
