@@ -42,3 +42,11 @@ albums.each_pair do |id, title|
     parent :works
   end
 end
+
+page :archive do
+  title 'Archive'
+  path '/archive/index.html'
+  template 'archive'
+  partial 'articles', 'articles/*', true
+  parent :index
+end
