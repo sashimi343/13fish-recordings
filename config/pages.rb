@@ -21,3 +21,19 @@ page :works do
   resource 'songs', 'songs.yml'
   parent :index
 end
+
+albums = {
+  second_fish: 'Second FISH'
+}
+
+albums.each_pair do |id, title|
+  page id do
+    title title
+    path "/works/#{id}/index.html"
+    template 'work'
+    resource 'album', "albums/#{id}.yml"
+    partial 'description', "descriptions/#{id}.slim"
+    partial 'cross_fade', "cross_fades/#{id}.slim"
+    parent :works
+  end
+end
