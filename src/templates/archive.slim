@@ -1,6 +1,9 @@
 .content
   /Almost all articles goes here (except for latest 3 articles)
-  - articles[3, articles.size - 3].each do |article|
-    == article
+  - pages = articles[3, articles.size - 3].each_slice(5).to_a
+  - pages.each_with_index do |page, index|
+    div id="page-#{index}"
+      - page.each do |article|
+        == article
   .z
     | このへんにページャが欲しいです
