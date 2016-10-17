@@ -10,13 +10,9 @@ $(function () {
     }
 
     pageItems.hide();
-    if (pageNumber >= 0 && pageNumber < numPages) {
-        $("#page-" + pageNumber).show();
-    } else {
-        $("#page-0").show();
-    }
+    $("#page-" + pageNumber).show();
 
-    if (pageNumber >= 1) {
+    if (pageNumber - 1 >= 0) {
         $(".pager-prev a").attr("href", location.pathname + "?page=" + (pageNumber - 1));
     } else {
         $(".pager-prev a").css("visibility", "hidden");
