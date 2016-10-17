@@ -1,4 +1,5 @@
 script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+script src="/js/pagination.js"
 .content
   /Almost all articles goes here (except for latest 3 articles)
   - pages = articles[3, articles.size - 3].each_slice(5).to_a
@@ -7,4 +8,9 @@ script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
       - page.each do |article|
         == article
   .z
-    | このへんにページャが欲しいです
+    #pager
+      span.pager-prev: a href="#" < Prev
+      | |
+      span.pager-home: a href="/archive/index.html?page=0" Home
+      | |
+      span.pager-next: a href="#" Next >

@@ -25,6 +25,7 @@ bundle exec ruby ./lib/main.rb
 # Place static resources
 cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
 cp -r ${root}/src/assets/images ${root}/public_html/img
+cp -r ${root}/src/assets/javascript ${root}/public_html/js
 
 if [ $# -eq 0 ]; then
     exit 0
