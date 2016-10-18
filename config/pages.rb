@@ -4,6 +4,7 @@ page :index do
   template 'index'
   resource 'news', 'news.yml'
   partial 'articles', 'articles/*', true
+  partial 'cross_fade', 'cross_fades/second_fish.slim'
 end
 
 page :about do
