@@ -39,7 +39,7 @@ bundle exec ruby ./lib/main.rb
 
 # Compile SCSS files
 mkdir ${root}/public_html/css
-bundle exec sass --cache-location tmp/.sass-cache --style expanded ${root}/src/assets/stylesheets/style.scss ${root}/public_html/css/style.css
+bundle exec sass --cache-location tmp/.sass-cache --style compressed ${root}/src/assets/stylesheets/style.scss ${root}/public_html/css/style.css
 
 # Place static resources
 #cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
