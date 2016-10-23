@@ -2,3 +2,80 @@
 @charset "UTF-8";
 
 @import "variables";
+
+html {
+    overflow: auto;
+    font: {
+        size: 0.9em;
+        family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: {
+        color: $bgcolor;
+        image: url("/img/background.png");
+        size: 100%;
+        attachment: fixed;
+    }
+    color: $text-color;
+    overflow: hidden;
+    width: 100%;
+    min-width: 768px;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px dashed $link-color;
+    color: $link-color;
+    &:hover {
+        border-bottom: 0;
+        color: $dark-color;
+        background-color: $link-color;
+    }
+} 
+
+table {
+    margin: {
+        top: $default-vertical-spacing;
+        bottom: $default-vertical-spacing * 2;
+        left: auto;
+        right: auto;
+    }
+    border: {
+        collapse: collapse;
+        spacing: 0;
+    }
+    width: 95%;
+}
+
+@mixin table-cell($border-color, $border-thickness: 1px) {
+    padding: $default-vertical-spacing $default-horizontal-spacing;
+    border-bottom: $border-thickness solid $border-color;
+    vertical-align: top;
+}
+
+th {
+    @include table-cell($dark-color, 2px);
+    text-align: center;
+}
+
+td {
+    @include table-cell($light-color);
+}
+
+blockquote {
+    margin: $default-vertical-spacing auto;
+    padding-left: 2em;
+}
+
+// Clear float properties
+hr {
+    margin: 0;
+    padding: 0;
+    clear: both;
+    visibility: hidden;
+}
