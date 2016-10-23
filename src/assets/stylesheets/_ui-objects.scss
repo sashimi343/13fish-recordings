@@ -22,13 +22,15 @@ $cover-box-size: $cover-size + 5px;
             width: $cover-size;
             height: $cover-size;
             text-align: center;
-            border-bottom: 0;
             &:hover {
                 border: 2px solid $link-color;
             }
         }
         a {
-            border-bottom: 0;
+            border: 0;
+            &:hover {
+                background: none;
+            }
         }
     }
     .albumTitle {
