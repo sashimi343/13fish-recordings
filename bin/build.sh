@@ -39,12 +39,19 @@ bundle exec ruby ./lib/main.rb
 
 # Compile SCSS files
 mkdir ${root}/public_html/css
-bundle exec sass --cache-location tmp/.sass-cache --style expanded ${root}/src/assets/stylesheets/style.scss ${root}/public_html/css/style.css
+bundle exec sass --cache-location tmp/.sass-cache --style compressed ${root}/src/assets/stylesheets/style.scss ${root}/public_html/css/style.css
 
 # Place static resources
 #cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
 cp -r ${root}/src/assets/images ${root}/public_html/img
 cp -r ${root}/src/assets/javascript ${root}/public_html/js
+
+# Prevent displaying index of directory
+find ${root}/public_html -type d -exec touch {}/index.html \;
+
+# Change permissions
+find ${root}/public_html -type d -exec chmod 755 {} \;
+find ${root}/public_html -type f -exec chmod 644 {} \;
 
 if [ $# -eq 0 ]; then
     exit 0
