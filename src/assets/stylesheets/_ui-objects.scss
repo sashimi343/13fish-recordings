@@ -1,0 +1,101 @@
+// Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.
+@charset "UTF-8";
+
+@import "variables";
+
+$cover-size: 185px;
+$cover-box-size: $cover-size + 5px;
+
+.albumBox {
+    margin: $default-vertical-spacing $default-horizontal-spacing;
+    padding: 0;
+    width: $cover-box-size + $default-vertical-spacing;
+    float: left;
+    text-indent: 0;
+    .albumCover {
+        margin: 0;
+        padding: $default-vertical-spacing * 0.5 $default-horizontal-spacing * 0.5;
+        height: $cover-box-size;
+        border: 1px solid $light-color;
+        text-align: center;
+        img {
+            width: $cover-size;
+            height: $cover-size;
+            text-align: center;
+            &:hover {
+                border: 2px solid $link-color;
+            }
+        }
+        a {
+            border: 0;
+            &:hover {
+                background: none;
+            }
+        }
+    }
+    .albumTitle {
+        margin: 0;
+        padding: $default-vertical-spacing * 0.5 $default-horizontal-spacing * 0.5;
+        border: 1px solid $light-color;
+        border-top: 0;
+        height: 40px;
+        text-align: center;
+    }
+}
+
+.button {
+    margin: $default-vertical-spacing 0;
+    text-align: center;
+    word-wrap: normal;
+    a {
+        padding: 2px $default-horizontal-spacing * 2.5;
+        border: 2px solid $link-color;
+        background-color: $link-color;
+        color: $dark-color;
+        &:hover {
+            background-color: $text-color;
+        }
+    }
+}
+
+.wideButton {
+    @extend .button;
+    font-size: $text-size + 0.6em;
+    a {
+        padding: 4px 35%;
+    }
+}
+
+.cover {
+    margin: {
+        top: $default-vertical-spacing * 2;
+        bottom: $default-vertical-spacing;
+        left: auto;
+        right: auto;
+    }
+    text-align: center;
+    a {
+        border-bottom: 0;
+        background: none;
+    }
+    img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+.linkBanner {
+    a {
+        border-bottom: 0;
+        &:hover {
+            background: none;
+        }
+    }
+}
+
+#pager {
+    text-align: center;
+    span {
+        margin: 0 $default-horizontal-spacing;
+    }
+}

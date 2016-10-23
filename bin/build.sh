@@ -37,8 +37,12 @@ rm -rf ${root}/public_html/*
 # Render slim files
 bundle exec ruby ./lib/main.rb
 
+# Compile SCSS files
+mkdir ${root}/public_html/css
+bundle exec sass --cache-location tmp/.sass-cache --style expanded ${root}/src/assets/stylesheets/style.scss ${root}/public_html/css/style.css
+
 # Place static resources
-cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
+#cp -r ${root}/src/assets/stylesheets ${root}/public_html/css
 cp -r ${root}/src/assets/images ${root}/public_html/img
 cp -r ${root}/src/assets/javascript ${root}/public_html/js
 

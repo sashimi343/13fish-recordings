@@ -1,0 +1,74 @@
+// Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.
+@charset "UTF-8";
+
+@import "variables";
+
+.content {
+    margin: 0;
+    padding: $default-vertical-spacing + 5 0;
+    width: 100%;
+    text: {
+        align: justify;
+        justify: inter-ideograph;
+    }
+}
+
+.contentLeft {
+    @extend .content;
+    width: 50%;
+    float: left;
+}
+
+.contentRight {
+    @extend .content;
+    width: 50%;
+    float: right;
+}
+
+.y {
+    border-left: 10px solid $light-color;
+    margin: {
+        top: $default-vertical-spacing * 2;
+        bottom: $default-vertical-spacing;
+        left: $default-horizontal-spacing;
+        right: $default-horizontal-spacing;
+    }
+    padding: 2px 5px;
+    background-image: url("/img/transbg_y.png");
+    font-size: $text-size + 0.3em;
+}
+
+.yy {
+    @extend .y;
+    margin-left: $default-horizontal-spacing + 20px;
+    font-size: $text-size + 0.2em;
+}
+
+.z {
+    font-size: $text-size;
+    line-height: $text-size * 2 - 0.1em;
+    padding: {
+        top: $default-vertical-spacing * 0.5;
+        bottom: $default-vertical-spacing;
+        left: $default-horizontal-spacing * 1.5;
+        right: $default-horizontal-spacing * 1.5;
+    }
+    text-indent: $text-size;
+    word-wrap: break-word;
+    table {
+        text-indent: 0;
+        text-align: left;
+    }
+    p {
+        text-indent: 0;
+        text-align: left;
+    }
+    blockquote {
+        text-indent: 0;
+    }
+}
+
+.zz {
+    @extend .z;
+    padding-left: $default-horizontal-spacing * 1.5 + 20px;
+}
