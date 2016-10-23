@@ -46,6 +46,9 @@ bundle exec sass --cache-location tmp/.sass-cache --style compressed ${root}/src
 cp -r ${root}/src/assets/images ${root}/public_html/img
 cp -r ${root}/src/assets/javascript ${root}/public_html/js
 
+# Prevent displaying index of directory
+find ${root}/public_html -type d -exec touch {}/index.html \;
+
 # Change permissions
 find ${root}/public_html -type d -exec chmod 755 {} \;
 find ${root}/public_html -type f -exec chmod 644 {} \;
