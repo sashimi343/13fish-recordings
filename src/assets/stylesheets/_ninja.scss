@@ -1,0 +1,30 @@
+// Copyright (C) 2013-2016 13FISH Recordings All Rights Reserved.
+// For NINJA ADs
+@charset "UTF-8";
+
+@import "variables";
+@import "mixin";
+
+.tdftad {
+    @include expansion;
+    position: absolute;
+    bottom: $text-size + 0.3em;
+    left: 0 auto;
+    border-top: 1px solid $light-color;
+    font-size: $text-size;
+    background-color: $bgcolor;
+    width: 100%;
+    height: ($text-size + 0.1em) * 3;
+    float: left;
+}
+
+$ad-element-classes: tdftpr, tdftlink;
+@each $element in $ad-element-classes {
+    .#{$element} {
+        margin: 0;
+        padding: 2px;
+        float: left;
+        list-style: none;
+        background-color: #229;
+    }
+}

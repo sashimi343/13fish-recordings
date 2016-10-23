@@ -2,11 +2,12 @@
 @charset "UTF-8";
 
 @import "variables";
+@import "mixin";
 
 html {
     overflow: auto;
     font: {
-        size: 0.9em;
+        size: $text-size;
         family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
     }
 }
@@ -50,12 +51,6 @@ table {
         spacing: 0;
     }
     width: 95%;
-}
-
-@mixin table-cell($border-color, $border-thickness: 1px) {
-    padding: $default-vertical-spacing $default-horizontal-spacing;
-    border-bottom: $border-thickness solid $border-color;
-    vertical-align: top;
 }
 
 th {

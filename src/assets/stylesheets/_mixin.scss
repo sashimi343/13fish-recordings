@@ -1,0 +1,16 @@
+// Copyright (C) 2013-2016 13FISH All Rights Reserved.
+@charset "UTF-8";
+
+@import "variables";
+
+@mixin table-cell($border-color, $border-thickness: 1px) {
+    padding: $default-vertical-spacing $default-horizontal-spacing;
+    border-bottom: $border-thickness solid $border-color;
+    vertical-align: top;
+}
+
+@mixin expansion {
+    margin: 0 -200%;
+    padding: 0 200%;
+    overflow-x: hidden;
+}
