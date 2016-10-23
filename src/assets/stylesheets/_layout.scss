@@ -2,3 +2,149 @@
 @charset "UTF-8";
 
 @import "variables";
+@import "mixin";
+
+$banner-height: 90px;
+
+$menu-text-size: 19px;
+$menu-vertical-spacing: 2px;
+$menu-element-width: 110px;
+$num-menu-elements: 6;
+
+$info-text-size: 12px;
+$info-spacing: 2px;
+
+$header-height: $banner-height
+                + ($menu-text-size + $menu-vertical-spacing * 2) * 2
+                + $info-text-size + $info-spacing * 4;
+
+#container {
+    padding: {
+        top: $header-height;
+        bottom: 3em;
+        left: 0;
+        right: 0;
+    }
+    margin: 0 auto;
+    width: 80%;
+}
+
+#header {
+    @include expansion;
+    position: absolute;
+    top: 0;
+    left: 0 auto;
+    background-color: $header-bgcolor;
+    width: 80%;
+    border-bottom: 1px solid $light-color;
+}
+
+#banner {
+    margin: 0;
+    padding: {
+        top: $default-vertical-spacing;
+        bottom: 0;
+        left: $default-horizontal-spacing;
+        right: $default-horizontal-spacing;
+    }
+    height: $banner-height;
+    font-size: $text-size - 0.1em;
+    img {
+        float: left;
+        height: $banner-height;
+    }
+    a {
+        text-decoration: none;
+        border-bottom: 0;
+    }
+    .description {
+        float: right;
+        text-align: right;
+        font-size: $text-size + 0.1em;
+    }
+}
+
+#menu {
+    margin: 0;
+    padding: 0;
+    font-size: $menu-text-size;
+    background-color: $header-bgcolor;
+    ul {
+        margin: 0 auto;
+        padding: 0;
+        width: $menu-element-width * $num-menu-elements;
+        font-size: $menu-text-size;
+        overflow: none;
+        list-style: none;
+    }
+    li {
+        float: left;
+        font-size: $menu-text-size;
+        text-align: center;
+        background-color: $header-bgcolor;
+    }
+    a {
+        text-decoration: none;
+        border: none;
+        color: $text-color;
+        background-color: transparent;
+        width: $menu-element-width;
+        height: auto;
+        padding: $menu-vertical-spacing 0;
+        display: block;
+        &:hover {
+            color: $dark-color;
+            background-color: $link-color;
+        }
+    }
+}
+
+#info {
+    margin: 0;
+    padding: 0 $default-horizontal-spacing;
+    font-size: $info-text-size;
+    ol {
+        padding: $info-spacing;
+        float: left;
+        list-style: none;
+    }
+    li {
+        padding: $info-spacing;
+        float: left;
+        list-style: none;
+    }
+}
+
+#main {
+    margin: {
+        top: $default-vertical-spacing;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    padding: {
+        top: $default-vertical-spacing + 5px;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+    }
+    width: 100%;
+    overflow: auto;
+    background-image: url("/img/transbg.png");
+}
+
+#copyright {
+    @include expansion;
+    position: absolute;
+    bottom: 0;
+    left: 0 auto;
+    border: {
+        top: 1px solid $light-color;
+        bottom: 1px solid $light-color;
+    }
+    background-color: $footer-bgcolor;
+    text-align: center;
+    font-size: 11px;
+    width: 80%;
+    height: 1.2em;
+}
