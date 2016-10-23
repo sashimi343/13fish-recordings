@@ -40,7 +40,7 @@
 
 .yy {
     @extend .y;
-    border-left: $default-horizontal-spacing + 20px; 
+    margin-left: $default-horizontal-spacing + 20px;
     font-size: $text-size + 0.2em;
 }
 
