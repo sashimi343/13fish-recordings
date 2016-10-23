@@ -16,7 +16,7 @@ $info-text-size: 12px;
 $info-spacing: 2px;
 
 $header-height: $banner-height
-                + ($menu-height + $menu-vertical-spacing * 2) * 2
+                + ($menu-height + $menu-vertical-spacing * 2)
                 + $info-text-size + $info-spacing * 4;
 
 #container {
@@ -105,11 +105,13 @@ $header-height: $banner-height
     padding: 0 $default-horizontal-spacing;
     font-size: $info-text-size;
     ol {
+        margin: 0;
         padding: $info-spacing;
         float: left;
         list-style: none;
     }
     li {
+        margin: 0;
         padding: $info-spacing;
         float: left;
         list-style: none;
@@ -117,12 +119,7 @@ $header-height: $banner-height
 }
 
 #main {
-    margin: {
-        top: $default-vertical-spacing;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
+    margin: 0;
     padding: {
         top: $default-vertical-spacing + 5px;
         bottom: 50px;
