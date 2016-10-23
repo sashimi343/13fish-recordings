@@ -6,7 +6,8 @@
 
 $banner-height: 90px;
 
-$menu-text-size: 19px;
+$menu-text-size: 1.2em;
+$menu-height: 19px;
 $menu-vertical-spacing: 2px;
 $menu-element-width: 110px;
 $num-menu-elements: 6;
@@ -15,7 +16,7 @@ $info-text-size: 12px;
 $info-spacing: 2px;
 
 $header-height: $banner-height
-                + ($menu-text-size + $menu-vertical-spacing * 2) * 2
+                + ($menu-height + $menu-vertical-spacing * 2) * 2
                 + $info-text-size + $info-spacing * 4;
 
 #container {
@@ -67,7 +68,7 @@ $header-height: $banner-height
 #menu {
     margin: 0;
     padding: 0;
-    font-size: $menu-text-size;
+    font-size: 12px;
     background-color: $header-bgcolor;
     ul {
         margin: 0 auto;
