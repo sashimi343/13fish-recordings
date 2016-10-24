@@ -27,6 +27,10 @@ DEST_CSS_DIR = "#{DEST_DIR}/css"
 DEST_JS_DIR = "#{DEST_DIR}/js"
 DEST_IMAGE_DIR = "#{DEST_DIR}/img"
 
+directory DEST_CSS_DIR
+directory DEST_JS_DIR
+directory DEST_IMAGE_DIR
+
 task 'default' => 'stage'
 
 desc 'Build page contents, and upload it to STAGING server'
@@ -44,21 +48,18 @@ namespace :update do
   end
 
   desc 'Update CSS files'
-  directory DEST_CSS_DIR
   task 'css' => DEST_CSS_DIR do
     sh "bundle exec sass --cache-location ./tmp/.sass-cache --style compressed ./src/assets/stylesheets/style.scss #{DEST_CSS_DIR}/style.css"
   end
 
   desc 'Update JavaScript files'
-  directory DEST_JS_DIR
   task 'js' => DEST_JS_DIR do
-    sh "cp -r ./src/assets/javascript #{DEST_JS_DIR}"
+    sh "cp -r ./src/assets/javascript/* #{DEST_JS_DIR}"
   end
 
   desc 'Update image files'
-  directory DEST_IMAGE_DIR
   task 'image' => DEST_IMAGE_DIR do
-    sh "cp -r ./src/assets/images #{DEST_IMAGE_DIR}"
+    sh "cp -r ./src/assets/images/* #{DEST_IMAGE_DIR}"
   end
 end
 
