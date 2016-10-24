@@ -22,19 +22,9 @@
 # SOFTWARE.
 #
 
-DEST_DIR = "#{File.dirname __FILE__}/public_html"
-DEST_CSS_DIR = "#{DEST_DIR}/css"
-DEST_JS_DIR = "#{DEST_DIR}/js"
-DEST_IMAGE_DIR = "#{DEST_DIR}/img"
-
-directory DEST_CSS_DIR
-directory DEST_JS_DIR
-directory DEST_IMAGE_DIR
-
-Dir.glob("./tasks/**/*.rb").each do |file|
-  require_relative file
-end
-
-task 'default' do
-  sh 'bundle exec rake -T'
+namespace :update do
+  desc 'Update HTML files'
+  task 'html' do
+    sh 'bundle exec ruby ./lib/main.rb'
+  end
 end
