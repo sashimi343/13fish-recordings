@@ -35,6 +35,12 @@ class Site
     @pages = []
     self.instance_eval File.open(pages_file).read
     construct_page_tree
+    self
+  end
+
+  def self.load(pages_file)
+    site = Site.new
+    site.load pages_file
   end
 
   private
