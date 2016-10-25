@@ -21,33 +21,33 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative 'renderer'
+
 class Partial
-  def initialize(key, partial_name)
+  attr_reader :key, :paths
+
+  def initialize(key, expression, desc)
     @key = key
-    @value = load_file partial_name
+    paths = expand_glob expression
+    @paths = desc ? paths.reverse : paths
   end
 
-  def reverse!
-    @value.reverse! if @value and @value.instance_of? Array
-  end
-
-  def to_hash
-    { key: @key, value: @value }
+  def render
+    render_partials
   end
 
   private
 
-  def load_file(partial_name)
-    paths = Dir.glob(File.expand_path("../src/partials/#{partial_name}", File.dirname(__FILE__)))
-    case paths.size
-    when 0
-      raise RuntimeError.new "Unknown partial file: #{partial_name} (id = #{@id})"
-    when 1
+  def expand_glob(expression)
+    Dir.glob(File.expand_path("../src/partials/#{expression}", File.dirname(__FILE__)))
+  end
+
+  def render_partials
+    unless @paths.empty?
       renderer = Renderer.new
-      renderer.render paths[0]
+      @paths.map { |path| renderer.render path }
     else
-      renderer = Renderer.new
-      paths.map { |path| renderer.render path }
+      raise RuntimeError.new "Unknown partial file(s): #{@paths}"
     end
   end
 end
