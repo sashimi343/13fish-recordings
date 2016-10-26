@@ -50,7 +50,7 @@ class Page
     dependencies = []
     dependencies << build_source_path("templates/#{@template}.slim")
     dependencies += @resources.map { |resource| resource.path }
-    @partials.each { |partial| dependencies += get_partial_cache_paths partial }
+    @partials.each { |partial| dependencies += partial.cached_paths }
     dependencies
   end
 
@@ -71,9 +71,5 @@ class Page
 
   def build_dest_path(path_expression)
     File.expand_path "../public_html/#{path_expression}", File.dirname(__FILE__)
-  end
-
-  def get_partial_cache_paths(partial)
-    partial.paths.map { |path| path.sub 'src', 'tmp' }
   end
 end

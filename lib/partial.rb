@@ -36,6 +36,12 @@ class Partial
     render_partials
   end
 
+  def cached_paths
+    source_directory = File.expand_path '../src/partials', File.dirname(__FILE__)
+    cache_directory = File.expand_path '../tmp/partials', File.dirname(__FILE__)
+    @paths.map { |path| path.sub source_directory, cache_directory }
+  end
+
   private
 
   def expand_glob(expression)
