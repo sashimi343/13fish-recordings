@@ -40,10 +40,18 @@ class Page
 
   def render
     renderer = Renderer.new
-    src_path = File.expand_path "../src/templates/#{@template}.slim", File.dirname(__FILE__)
-    dst_path = File.expand_path "../public_html#{@path}", File.dirname(__FILE__)
+    src_path = build_source_path "templates/#{@template}.slim"
+    dst_path = build_dest_path @path
     option = build_option
     renderer.render_with_template src_path, dst_path, option
+  end
+
+  def get_dependencies
+    dependencies = []
+    dependencies << build_source_path("templates/#{@template}.slim")
+    dependencies += @resources.map { |resource| resource.path }
+    @partials.each { |partial| dependencies += get_partial_cache_paths partial }
+    dependencies
   end
 
   private
@@ -55,5 +63,17 @@ class Page
     option_builder.set_partials @partials
     option_builder.set_breadcrumbs self
     option_builder.build
+  end
+
+  def build_source_path(path_expression)
+    File.expand_path "../src/#{path_expression}", File.dirname(__FILE__)
+  end
+
+  def build_dest_path(path_expression)
+    File.expand_path "../public_html/#{path_expression}", File.dirname(__FILE__)
+  end
+
+  def get_partial_cache_paths(partial)
+    partial.paths.map { |path| path.sub 'src', 'tmp' }
   end
 end
