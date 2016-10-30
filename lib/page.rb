@@ -53,7 +53,7 @@ class Page
     dependencies = []
     dependencies << @template
     dependencies += @resources.map { |resource| resource.path }
-    @partials.each { |partial| dependencies += partial.cached_paths }
+    @partials.each { |partial| dependencies += partial.cache_paths }
     dependencies
   end
 

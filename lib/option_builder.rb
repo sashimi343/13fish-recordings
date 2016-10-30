@@ -56,6 +56,8 @@ class OptionBuilder
   def set_if_absent(key, value)
     if @option.has_key? key.to_sym or Keywords.include? key
       raise RuntimeError.new "Duplicated key: #{key}"
+    elsif value.instance_of? Array and value.size == 1
+      @option[key.to_sym] = value[0]
     else
       @option[key.to_sym] = value
     end

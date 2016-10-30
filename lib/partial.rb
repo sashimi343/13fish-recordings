@@ -34,12 +34,12 @@ class Partial
   end
 
   def load
-    @paths.zip(cached_paths).map { |src_path, cached_path| load_partial src_path, cached_path }
+    p cache_paths if @key == 'description'
+    cache_paths.map { |path| load_cache path }
   end
 
-  def cached_paths
-    path_utils = PathUtils.instance
-    @paths.map { |path| path_utils.to_cache path }
+  def cache_paths
+    @paths.map { |path| PathUtils.instance.to_cache path }
   end
 
   private
@@ -48,18 +48,12 @@ class Partial
     Dir.glob PathUtils.instance.absolutize_partial expression
   end
 
-  def load_partial(src_path, cached_path)
-    if FileTest.exist? cached_path
-      File.open(cached_path).read
-    elsif FileTest.exist? src_path
-      renderer = Renderer.new
-      blob = renderer.render src_path
-      cached_directory = File.dirname(cached_path)
-      FileUtils.mkdir_p(cached_directory) unless FileTest.exist?(cached_directory)
-      File.open(cache_path, 'w').write(blob)
-      blob
-    else
-      raise RuntimeError.new "Unknown partial file: #{src_path}"
+  def load_cache(cache_path)
+    unless FileTest.exist? cache_path
+      raise RuntimeError.new "Unknown partial file: #{cache_path}"
     end
+
+    blob = File.read(cache_path)
+    blob
   end
 end
