@@ -23,6 +23,7 @@
 #
 require_relative 'resource'
 require_relative 'partial'
+require_relative 'path_utils'
 
 class PageBuilder
   def initialize(id)
@@ -48,7 +49,7 @@ class PageBuilder
   end
 
   def template(template = '')
-    @template = template
+    @template = PathUtils.instance.absolutize_template template
   end
 
   def resource(key, resource_name)

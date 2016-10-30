@@ -22,13 +22,14 @@
 # SOFTWARE.
 #
 require 'yaml'
+require_relative 'path_utils'
 
 class Resource
   attr_reader :key, :path
 
   def initialize(key, resource_name)
     @key = key
-    @path = expand_path resource_name
+    @path = PathUtils.instance.absolutize_resource resource_name
   end
 
   def load
@@ -37,15 +38,11 @@ class Resource
 
   private
 
-  def expand_path(resource_name)
-    File.expand_path("../src/resources/#{resource_name}", File.dirname(__FILE__))
-  end
-
   def load_yaml
-    if File.exist? @path
-      YAML.load_file @path
-    else
+    unless FileTest.exist? @path
       raise RuntimeError.new "Unknown resource file: #{@path}"
     end
+
+    YAML.load_file @path
   end
 end

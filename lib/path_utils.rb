@@ -26,73 +26,53 @@ require 'singleton'
 class PathUtils
   include Singleton
 
+  attr_reader :src_directory, :src_stylesheets, :src_javascript, :src_images, :cache_directory, :dst_directory, :dst_stylesheets, :dst_javascript, :dst_images
+
   def initialize
     @root = File.expand_path '../', File.dirname(__FILE__)
-    @source_directory = File.expand_path 'src/', @root
+    @src_directory = File.expand_path 'src/', @root
+    @src_stylesheets = File.expand_path 'assets/stylesheets/', @src_directory
+    @src_javascript = File.expand_path 'assets/javascript/', @src_directory
+    @src_images = File.expand_path 'assets/images/', @src_directory
     @cache_directory = File.expand_path 'tmp/', @root
-    @dest_directory = File.expand_path 'public_html/', @root
-    @dest_stylesheets = File.expand_path 'css/', @dest_directory
-    @dest_javascript = File.expand_path 'js/', @dest_directory
-    @dest_images = File.expand_path 'img/', @dest_directory
+    @dst_directory = File.expand_path 'public_html/', @root
+    @dst_stylesheets = File.expand_path 'css/', @dst_directory
+    @dst_javascript = File.expand_path 'js/', @dst_directory
+    @dst_images = File.expand_path 'img/', @dst_directory
   end
 
   def absolutize_template(expression)
     expression += '.slim' unless expression.end_with? '.slim'
-    File.expand_path "templates/#{expression}", @source_directory
+    File.expand_path "templates/#{expression}", @src_directory
   end
 
   def absolutize_resource(expression)
     expression += '.yml' unless expression.end_with? '.yml'
-    File.expand_path "resources/#{expression}", @source_directory
+    File.expand_path "resources/#{expression}", @src_directory
   end
 
   def absolutize_partial(expression)
     expression += '.slim' unless expression.end_with? '.slim'
-    File.expand_path "partials/#{expression}", @source_directory
+    File.expand_path "partials/#{expression}", @src_directory
   end
 
   def absolutize_html(path)
-    path.slice! 0 if path.start_with? '/'
-    File.expand_path path, @dest_directory
+    if path.start_with? '/'
+      File.expand_path path.sub('/', ''), @dst_directory
+    else
+      File.expand_path path, @dst_directory
+    end
   end
 
   def absolutize_source_stylesheet(expression)
-    File.expand_path "assets/stylesheets/#{expression}", @source_directory
+    File.expand_path expression, @src_stylesheets
   end
 
-  def absolutize_dest_stylesheet(expression)
-    File.expand_path expression, @dest_stylesheets
+  def absolutize_dst_stylesheet(expression)
+    File.expand_path expression, @dst_stylesheets
   end
 
   def to_cache(path)
-    path.sub @source_directory, @cache_directory
-  end
-
-  def get_source_stylesheets_directory
-    File.expand_path 'assets/stylesheets/', @source_directory
-  end
-
-  def get_source_javascripts_directory
-    File.expand_path 'assets/javascript', @source_directory
-  end
-
-  def get_source_images_directory
-    File.expand_path 'assets/images', @source_directory
-  end
-
-  def get_dest_html_directory
-    @dest_directory
-  end
-
-  def get_dest_stylesheet_directory
-    @dest_stylesheets
-  end
-
-  def get_dest_javascript_directory
-    @dest_javascript
-  end
-
-  def get_dest_image_directory
-    @dest_images
+    path.sub(@src_directory, @cache_directory) + '.cached'
   end
 end

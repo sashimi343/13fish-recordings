@@ -21,10 +21,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative '../../lib/path_utils'
 
 namespace 'update' do
+  path_utils = PathUtils.instance
+
   desc 'Update image files'
-  task 'image' => DEST_IMAGE_DIR do
-    sh "cp -r ./src/assets/images/* #{DEST_IMAGE_DIR}"
+  task 'image' do
+    mkdir_p(path_utils.dst_images) unless Dir.exist? path_utils.dst_images
+    sh "cp -r ./src/assets/images/* #{path_utils.dst_images}"
   end
 end

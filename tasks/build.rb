@@ -23,7 +23,7 @@
 #
 
 desc 'Build page contents'
-task 'build' => ['init', 'update:html', 'update:css', 'update:js', 'update:image'] do
+task 'build' => ['update:html', 'update:css', 'update:js', 'update:image'] do
   sh 'find ./public_html -type d -exec chmod 755 {} \;'
   sh 'find ./public_html -type f -exec chmod 644 {} \;'
   sh 'find ./public_html -type d -exec touch {}/index.html \;'

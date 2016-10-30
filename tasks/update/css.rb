@@ -21,10 +21,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative '../../lib/path_utils'
 
 namespace 'update' do
+  path_utils = PathUtils.instance
+
   desc 'Update CSS files'
-  task 'css' => DEST_CSS_DIR do
-    sh "bundle exec sass --cache-location ./tmp/.sass-cache --style compressed ./src/assets/stylesheets/style.scss #{DEST_CSS_DIR}/style.css"
+  task 'css' do
+    mkdir_p(path_utils.dst_stylesheets) unless Dir.exist? path_utils.dst_stylesheets
+    sh "bundle exec sass --cache-location ./tmp/.sass-cache --style compressed #{path_utils.src_stylesheets}/style.scss #{path_utils.dst_stylesheets}/style.css"
   end
 end

@@ -21,10 +21,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative '../../lib/path_utils'
 
 namespace 'update' do
+  path_utils = PathUtils.instance
+
   desc 'Update JavaScript files'
-  task 'js' => DEST_JS_DIR do
-    sh "cp -r ./src/assets/javascript/* #{DEST_JS_DIR}"
+  task 'js' do
+    mkdir_p(path_utils.dst_javascript) unless Dir.exist? path_utils.dst_javascript
+    sh "cp -r ./src/assets/javascript/* #{path_utils.dst_javascript}"
   end
 end

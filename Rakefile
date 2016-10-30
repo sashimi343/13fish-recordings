@@ -21,19 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative 'lib/path_utils'
 
-DEST_DIR = "#{File.dirname __FILE__}/public_html"
-DEST_CSS_DIR = "#{DEST_DIR}/css"
-DEST_JS_DIR = "#{DEST_DIR}/js"
-DEST_IMAGE_DIR = "#{DEST_DIR}/img"
-
-directory DEST_CSS_DIR
-directory DEST_JS_DIR
-directory DEST_IMAGE_DIR
-
-Dir.glob("./tasks/**/*.rb").each do |file|
-  require_relative file
-end
+Dir.glob("./tasks/**/*.rb").each { |file| require_relative file }
 
 task 'default' do
   sh 'bundle exec rake -T'

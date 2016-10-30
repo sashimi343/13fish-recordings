@@ -38,7 +38,7 @@ class OptionBuilder
   end
 
   def set_partials(partials)
-    partials.each { |partial| set_if_absent partial.key, partial.render }
+    partials.each { |partial| set_if_absent partial.key, partial.load }
   end
 
   def set_breadcrumbs(page)

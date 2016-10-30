@@ -59,7 +59,7 @@ class Site
 
   def get_children_of(parent)
     @pages.select { |page| page.parent == parent.id }
-      .map    { |page| { page: page, children: get_children_of(page) } }
+          .map    { |page| { page: page, children: get_children_of(page) } }
   end
 
   def set_children(parent_node)

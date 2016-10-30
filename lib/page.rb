@@ -23,6 +23,7 @@
 #
 require_relative 'renderer'
 require_relative 'option_builder'
+require_relative 'path_utils'
 
 class Page
   attr_reader :id, :title, :path, :template, :resources, :partials
@@ -40,15 +41,17 @@ class Page
 
   def render
     renderer = Renderer.new
-    src_path = build_source_path "templates/#{@template}.slim"
-    dst_path = build_dest_path @path
     option = build_option
-    renderer.render_with_template src_path, dst_path, option
+    renderer.render_with_template @template, get_dst_absolute_path, option
+  end
+
+  def get_dst_absolute_path
+    PathUtils.instance.absolutize_html @path
   end
 
   def get_dependencies
     dependencies = []
-    dependencies << build_source_path("templates/#{@template}.slim")
+    dependencies << @template
     dependencies += @resources.map { |resource| resource.path }
     @partials.each { |partial| dependencies += partial.cached_paths }
     dependencies
@@ -63,13 +66,5 @@ class Page
     option_builder.set_partials @partials
     option_builder.set_breadcrumbs self
     option_builder.build
-  end
-
-  def build_source_path(path_expression)
-    File.expand_path "../src/#{path_expression}", File.dirname(__FILE__)
-  end
-
-  def build_dest_path(path_expression)
-    File.expand_path "../public_html/#{path_expression}", File.dirname(__FILE__)
   end
 end
