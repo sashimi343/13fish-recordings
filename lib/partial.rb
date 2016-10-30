@@ -34,7 +34,6 @@ class Partial
   end
 
   def load
-    p cache_paths if @key == 'description'
     cache_paths.map { |path| load_cache path }
   end
 
@@ -53,7 +52,6 @@ class Partial
       raise RuntimeError.new "Unknown partial file: #{cache_path}"
     end
 
-    blob = File.read(cache_path)
-    blob
+    File.open(cache_path, 'r') { |file| file.read }
   end
 end

@@ -33,7 +33,7 @@ class Site
 
   def load(pages_file)
     @pages = []
-    self.instance_eval File.open(pages_file).read
+    self.instance_eval File.open(pages_file, 'r') { |file| file.read }
     construct_page_tree
     self
   end

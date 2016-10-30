@@ -49,7 +49,8 @@ namespace :update do
       blob = renderer.render src_path
       cache_directory = File.dirname(cache_path)
       FileUtils.mkdir_p(cache_directory) unless FileTest.exist?(cache_directory)
-      File.open(cache_path, 'w').write(blob)
+      File.open(cache_path, 'w') { |file| file.puts blob }
     end
   end
+
 end
