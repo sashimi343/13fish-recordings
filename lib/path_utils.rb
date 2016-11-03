@@ -26,18 +26,18 @@ require 'singleton'
 class PathUtils
   include Singleton
 
-  attr_reader :src_directory, :src_stylesheets, :src_javascript, :src_images, :cache_directory, :dst_directory, :dst_stylesheets, :dst_javascript, :dst_images
+  attr_reader :src_directory, :src_stylesheets, :src_javascripts, :src_images, :cache_directory, :dst_directory, :dst_stylesheets, :dst_javascripts, :dst_images
 
   def initialize
     @root = File.expand_path '../', File.dirname(__FILE__)
     @src_directory = File.expand_path 'src/', @root
     @src_stylesheets = File.expand_path 'assets/stylesheets/', @src_directory
-    @src_javascript = File.expand_path 'assets/javascript/', @src_directory
+    @src_javascripts = File.expand_path 'assets/javascripts/', @src_directory
     @src_images = File.expand_path 'assets/images/', @src_directory
     @cache_directory = File.expand_path 'tmp/', @root
     @dst_directory = File.expand_path 'public_html/', @root
     @dst_stylesheets = File.expand_path 'css/', @dst_directory
-    @dst_javascript = File.expand_path 'js/', @dst_directory
+    @dst_javascripts = File.expand_path 'js/', @dst_directory
     @dst_images = File.expand_path 'img/', @dst_directory
   end
 

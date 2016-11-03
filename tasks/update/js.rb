@@ -28,7 +28,7 @@ namespace 'update' do
 
   desc 'Update JavaScript files'
   task 'js' do
-    mkdir_p(path_utils.dst_javascript) unless Dir.exist? path_utils.dst_javascript
-    sh "cp -r ./src/assets/javascript/* #{path_utils.dst_javascript}"
+    mkdir_p(path_utils.dst_javascripts) unless Dir.exist? path_utils.dst_javascripts
+    sh "cp -r ./src/assets/javascripts/* #{path_utils.dst_javascripts}"
   end
 end
