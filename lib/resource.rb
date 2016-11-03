@@ -21,24 +21,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require 'yaml'
+require_relative 'path_utils'
+
 class Resource
+  attr_reader :key, :path
+
   def initialize(key, resource_name)
     @key = key
-    @value = load_file resource_name
+    @path = PathUtils.instance.absolutize_resource resource_name
   end
 
-  def to_hash
-    { key: @key, value: @value }
+  def load
+    load_yaml
   end
 
   private
 
-  def load_file(resource_name)
-    path = File.expand_path "../src/resources/#{resource_name}", File.dirname(__FILE__)
-    if File.exist? path
-      YAML.load_file path
-    else
-      raise RuntimeError.new "Unknown resource file: #{resource_name} (id = #{@id})"
+  def load_yaml
+    unless FileTest.exist? @path
+      raise RuntimeError.new "Unknown resource file: #{@path}"
     end
+
+    YAML.load_file @path
   end
 end

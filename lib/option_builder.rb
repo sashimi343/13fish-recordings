@@ -34,27 +34,15 @@ class OptionBuilder
   end
 
   def set_resources(resources)
-    resources.each do |resource|
-      unless @option.has_key? resource[:key]
-        @option[resource[:key]] = resource[:value]
-      else
-        raise RuntimeError.new "Duplicated key: #{resource[:key]}"
-      end
-    end
+    resources.each { |resource| set_if_absent resource.key, resource.load }
   end
 
   def set_partials(partials)
-    partials.each do |partial|
-      unless @option.has_key? partial[:key]
-        @option[partial[:key]] = partial[:value]
-      else
-        raise RuntimeError.new "Duplicated key: #{partial[:key]}"
-      end
-    end
+    partials.each { |partial| set_if_absent partial.key, partial.load }
   end
 
   def set_breadcrumbs(page)
-    @option[:breadcrumbs] = breadcrumbs page
+    @option[:breadcrumbs] = get_breadcrumbs page
   end
 
   def build
@@ -63,7 +51,19 @@ class OptionBuilder
 
   private
 
-  def breadcrumbs(leaf_page)
+  Keywords = %w(title breadcrumbs)
+
+  def set_if_absent(key, value)
+    if @option.has_key? key.to_sym or Keywords.include? key
+      raise RuntimeError.new "Duplicated key: #{key}"
+    elsif value.instance_of? Array and value.size == 1
+      @option[key.to_sym] = value[0]
+    else
+      @option[key.to_sym] = value
+    end
+  end
+
+  def get_breadcrumbs(leaf_page)
     breadcrumbs = [{ 'title' => leaf_page.title }]
 
     page = leaf_page.parent

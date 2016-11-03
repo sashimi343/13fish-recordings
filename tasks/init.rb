@@ -21,8 +21,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative '../lib/path_utils'
 
-desc "Cleanup #{DEST_DIR}"
+desc "Cleanup dest directories"
 task 'init' do
-  sh "rm -rf #{DEST_DIR}/*"
+  path_utils = PathUtils.instance
+  remove_entry path_utils.cache_directory, true
+  mkdir path_utils.cache_directory
+  remove_entry path_utils.dst_directory, true
+  mkdir path_utils.dst_directory
 end

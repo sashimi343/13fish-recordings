@@ -23,6 +23,7 @@
 #
 require 'slim'
 require 'fileutils'
+require_relative 'path_utils'
 
 class Renderer
   #
@@ -49,7 +50,7 @@ class Renderer
 
   private
 
-  LAYOUT = File.expand_path '../src/templates/_layout.slim', File.dirname(__FILE__)
+  LAYOUT = PathUtils.instance.absolutize_template '_layout'
 
   def apply_template(contents, option)
     Slim::Template.new(LAYOUT).render(option) { contents }
@@ -58,6 +59,6 @@ class Renderer
   def write(blob, dst_path)
     dst_dir = File.dirname dst_path
     FileUtils.mkdir_p(dst_dir) unless FileTest.exist?(dst_dir)
-    File.open(dst_path, 'w').write(blob)
+    File.open(dst_path, 'w') { |file| file.puts blob }
   end
 end

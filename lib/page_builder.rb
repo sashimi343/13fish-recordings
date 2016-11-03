@@ -21,10 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-require 'yaml'
-require_relative 'renderer'
 require_relative 'resource'
 require_relative 'partial'
+require_relative 'path_utils'
 
 class PageBuilder
   def initialize(id)
@@ -50,18 +49,15 @@ class PageBuilder
   end
 
   def template(template = '')
-    @template = template
+    @template = PathUtils.instance.absolutize_template template
   end
 
   def resource(key, resource_name)
-    resource = Resource.new key, resource_name
-    @resources << resource.to_hash
+    @resources.push Resource.new key, resource_name
   end
 
-  def partial(key, partial_name, desc = false)
-    partial = Partial.new key, partial_name
-    partial.reverse! if desc
-    @partials << partial.to_hash
+  def partial(key, expression, desc = false)
+    @partials.push Partial.new key, expression, desc
   end
 
   def build

@@ -33,8 +33,14 @@ class Site
 
   def load(pages_file)
     @pages = []
-    self.instance_eval File.open(pages_file).read
+    self.instance_eval File.open(pages_file, 'r') { |file| file.read }
     construct_page_tree
+    self
+  end
+
+  def self.load(pages_file)
+    site = Site.new
+    site.load pages_file
   end
 
   private
@@ -53,7 +59,7 @@ class Site
 
   def get_children_of(parent)
     @pages.select { |page| page.parent == parent.id }
-      .map    { |page| { page: page, children: get_children_of(page) } }
+          .map    { |page| { page: page, children: get_children_of(page) } }
   end
 
   def set_children(parent_node)

@@ -21,8 +21,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require_relative '../lib/path_utils'
 
 desc 'Build page contents, and upload it to STAGING server'
 task 'stage' => ['build'] do
-  sh "sudo cp -r #{DEST_DIR}/* /usr/share/nginx/html"
+  sh "sudo cp -r #{PathUtils.instance.dst_directory}/* /usr/share/nginx/html"
 end

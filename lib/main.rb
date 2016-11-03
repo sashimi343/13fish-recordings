@@ -23,7 +23,5 @@
 #
 require_relative 'site'
 
-site = Site.new
-site.load File.expand_path '../config/pages.rb', File.dirname(__FILE__)
-
+site = Site.load File.expand_path '../config/pages.rb', File.dirname(__FILE__)
 site.pages.each { |page| page.render }

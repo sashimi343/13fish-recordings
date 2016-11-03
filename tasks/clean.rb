@@ -21,10 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-require_relative 'lib/path_utils'
 
-Dir.glob("./tasks/**/*.rb").each { |file| require_relative file }
-
-task 'default' do
-  sh 'bundle exec rake -T'
+desc 'Remove dest/cached files, then build page contents'
+task 'clean' => ['init', 'update:html', 'update:css', 'update:js', 'update:image'] do
+  sh 'find ./public_html -type d -exec chmod 755 {} \;'
+  sh 'find ./public_html -type f -exec chmod 644 {} \;'
+  sh 'find ./public_html -type d -exec touch {}/index.html \;'
 end
