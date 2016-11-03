@@ -51,6 +51,7 @@ class Page
 
   def get_dependencies
     dependencies = []
+    dependencies << PathUtils.instance.absolutize_template('_layout')
     dependencies << @template
     dependencies += @resources.map { |resource| resource.path }
     @partials.each { |partial| dependencies += partial.cache_paths }
