@@ -1,0 +1,4 @@
+server: ftp.example.com
+user: hogehoge
+password: P@ssw0rd
+#remote_dir: public/foo
