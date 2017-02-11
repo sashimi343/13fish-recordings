@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2016 sashimi
+# Copyright (c) 2016-2017 sashimi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -26,5 +26,4 @@ desc 'Build page contents'
 task 'build' => ['update:html', 'update:css', 'update:js', 'update:image'] do
   sh 'find ./public_html -type d -exec chmod 755 {} \;'
   sh 'find ./public_html -type f -exec chmod 644 {} \;'
-  sh 'find ./public_html -type d -exec touch {}/index.html \;'
 end

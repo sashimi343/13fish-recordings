@@ -6,3 +6,4 @@ tmp/*
 !tmp/.keep
 public_html/*
 !public_html/.keep
+config/ftp.yml

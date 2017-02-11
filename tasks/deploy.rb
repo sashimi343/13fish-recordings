@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2016-2017 sashimi
+# Copyright (c) 2017 sashimi
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,9 +21,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+require 'yaml'
+require_relative '../lib/ftp_uploader'
 
-desc 'Remove dest/cached files, then build page contents'
-task 'clean' => ['init', 'update:html', 'update:css', 'update:js', 'update:image'] do
-  sh 'find ./public_html -type d -exec chmod 755 {} \;'
-  sh 'find ./public_html -type f -exec chmod 644 {} \;'
+desc 'Build page contents, and upload it to the server'
+task 'deploy' do
+  ftp_config = YAML.load_file File.expand_path '../config/ftp.yml', File.dirname(__FILE__)
+  ftp_uploader = FTPUploader.new(
+    ftp_config['server'],
+    ftp_config['user'],
+    ftp_config['password'],
+    File.expand_path('../public_html', File.dirname(__FILE__)),
+    ftp_config['remote_dir']
+  )
+  ftp_uploader.upload '**/*'
 end
+
