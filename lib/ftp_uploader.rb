@@ -28,14 +28,19 @@ class FTPUploader
     @connection = Net::FTP.open server, user, password
     change_local_directory local_dir
     change_remote_directory if remote_dir
+    puts "Success to connect to FTP server #{server}"
   end
 
   def upload(local_path)
     local_paths = Dir.glob(local_path).reject { |each| ['.', '..'].include? each }
-    local_paths.each do |path|
+    local_paths.select { |path| FileTest.file? path }.each do |path|
       print "Info: put local file #{path} to remote ..."
       mkdir_p File.dirname(path)
-      @connection.put(path, path) if FileTest.file? path
+      if path.end_with? '.html'
+        @connection.puttextfile path, path
+      else
+        @connection.putbinaryfile path, path
+      end
       puts "done"
     end
   end
