@@ -25,7 +25,6 @@ require 'yaml'
 require_relative '../lib/ftp_uploader'
 
 desc 'Build page contents, and upload it to the server'
-#task 'deploy' => ['build'] do
 task 'deploy' do
   ftp_config = YAML.load_file File.expand_path '../config/ftp.yml', File.dirname(__FILE__)
   ftp_uploader = FTPUploader.new(
@@ -35,7 +34,6 @@ task 'deploy' do
     File.expand_path('../public_html', File.dirname(__FILE__)),
     ftp_config['remote_dir']
   )
-  #ftp_uploader.upload '**/*'
-  ftp_uploader.upload 'blank.html'
+  ftp_uploader.upload '**/*'
 end
 
