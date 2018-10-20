@@ -1,0 +1,26 @@
+id: over_180
+title: Over 180
+code: FISH-0007
+tracks:
+  - name: Hiryu
+    artist: goma
+  - name: T-Cyclone
+    artist: x3-Fold
+  - name: Vignette in the Eternal Twilight
+    artist: sashimi
+  - name: 星の丘
+    artist: スターライナー斉藤
+staffs:
+  - role: Composer
+    members:
+      - goma
+      - x3-Fold
+      - sashimi
+      - スターライナー斉藤
+  - role: Designer
+    members:
+      - sashimi
+  - role: Mastering
+    members:
+      - sashimi
+download: https://soundcloud.com/13fish-recordings/2018m3over-180-cross-fade-demo

@@ -4,7 +4,7 @@ page :index do
   template 'index'
   resource 'news', 'news.yml'
   partial 'articles', 'articles/*', true
-  partial 'cross_fade', 'cross_fades/second_fish.slim'
+  partial 'cross_fade', 'cross_fades/over_180.slim'
 end
 
 page :about do
@@ -24,6 +24,7 @@ page :works do
 end
 
 albums = {
+  over_180: 'Over 180',
   second_fish: 'Second FISH',
   fish_on_rice: 'FISH on RICE',
   athene: 'Athene Remix ALBUM',
